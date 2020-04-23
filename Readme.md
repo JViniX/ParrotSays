@@ -1,6 +1,6 @@
 # Parrot Says
 
-Parrot Says meant to be a safety solution whether for corporations, colleges or universities. By using Parrot Says App or just tweeting, users can report any issue to responsible staff in seconds. 
+Parrot Says meant to be a solution safety for either corporations, colleges, or universities. By using Parrot Says App or just tweeting, users can report any issue to responsible staff in seconds. 
 
 The mobile app allows users to send anonymously all reports/comments with the geolocation and an optional picture in it. Logins are not required.
 
