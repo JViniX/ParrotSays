@@ -37,6 +37,8 @@ function ReportDetail() {
           getReportById(auth.isAuthenticated().token, id).then((data) => {
             if (data) {
               setReport(data);
+              setSolution(data.solution);
+              setStatusCode(data.statusCode);
               //console.log(data);
             }
           });
@@ -144,6 +146,7 @@ function ReportDetail() {
                       className="form-control"
                       rows="10"
                       cols="50"
+                      defaultValue={solution}
                       onChange={(e) => setSolution(e.target.value)}
                     ></textarea>
                     <br></br>
@@ -156,6 +159,7 @@ function ReportDetail() {
                       className="form-control"
                       id="sel1"
                       name="StatusCode"
+                      value = {statusCode}
                       onChange={(e) => setStatusCode(e.target.value)}
                     >
                       <option value="0">Opened</option>

@@ -1,24 +1,23 @@
-# Parrot Says - Automated Twitter Scrapping
+# Parrot Says
 
-This project aims for leveraging twitter posts in order to create rich and meaninfull event reports within parrot says system. By laveraging aws comprehend service, posts' data are read and analysed in order to extract sentiment, and hazardous condition spotting. 
+Parrot Says meant to be a safety solution whether for corporations, colleges or universities. By using Parrot Says App or just tweeting, users can report any issue to responsible staff in seconds. 
 
-## Architecture
-![Architecture](https://github.com/thiago-nsjob/COMP313-001-Team-1---ParrotSays/blob/dev/assets/project_arch.jpg)
+The mobile app allows users to send anonymously all reports/comments with the geolocation and an optional picture in it. Logins are not required.
+
+The Admin Portal allows the staff to manage the reports, if needed they may send it to be investigated by a security guard. If there is a critical situation, they can send a push notification to everyone with the app installed.
+
+The security guards can log in to the App and retrieve the list of reports to be investigated, along with corresponding details about each report. They also can send back to the staff their investigation result.
+
+Additionally, when people refer to the organization on Twitter, it is caught, analyzed by AWS Comprehend Service and can become a report, depending upon the extracted sentiment, and hazardous condition spotting. 
  
-## Description
-### 1. CloudWatch trigger   
-### 2. Twitter Scrapping 
-### 3. Message sending to SQS
-### 4. SQS triggers analyser lambda
-### 5. Post data analysed by AWS Comprehend
-### 6. Enriched post data sent to TweetApi
-### 7. Api saves tweet on mongo atlas
-### 8. Api enables SNS notification
-### 9. Admin portal uses TweetApi
-### 10. ParrotSays Api integrates MySQL db
-### 11. Android App connects to ParrotSays Api 
-### 12. Android App receives notification
-
+ 
+## Infrastructure
+### 1. Parrot Says API (Spring Boot + MySQL)
+### 2. Parrot Says Web Admin Portal (React Hooks)
+### 3. Parrot Says Mobile App (Android Native: Java)
+### 4. AWS Comprehend Services
+### 5. AWS SNS + Google Firebase Cloud Message
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+

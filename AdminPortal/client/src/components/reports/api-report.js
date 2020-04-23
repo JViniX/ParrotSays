@@ -43,14 +43,16 @@ const updateReport = (token, id, report) => {
 //delete
 const deleteReport = (token, id) => {
   //console.log(report);
-  try {
-    axios.delete("/reports/delreport/" + id, {
+
+  return axios
+    .put("/reports/delreport/" + id, {
       headers: { Authorization: `Bearer ${token}` },
-    });
-    //console.log(response);
-  } catch (err) {
-    console.log(err);
-  }
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((err) => console.log(err));
 };
 
 //update status code and solution on report

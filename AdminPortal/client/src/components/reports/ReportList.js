@@ -14,7 +14,7 @@ function ReportList() {
     try {
       await deleteReport(auth.isAuthenticated().token, id);
       console.log("delete");
-      window.location.reload(false);
+      window.location.reload(true);
     } catch (e) {
       console.log(e);
     }
