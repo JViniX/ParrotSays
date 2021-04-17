@@ -31,6 +31,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Roles> roles = new ArrayList<Roles>();
 
+
+
     public List<Roles> getRoles() {
 		return roles;
 	}

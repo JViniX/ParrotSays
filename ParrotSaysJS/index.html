@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- 
+301016383 - Julio Vinicius A. de Carvalho
+November 17, 2019
+-->
+<html lang="en">
+<head>
+<link href="css/bootstrap.css" rel="stylesheet" />
+<meta charset="ISO-8859-1">
+<title>Parrot Says</title>
+ </head>
+ <body>
+   <div>
+     <nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="background:#D81B60">
+	  <a class="navbar-brand" href="/"><img src="images/ic_launcher_mini.png" alt="logo" class="card"></img></a>
+	  
+	  <!-- Links -->
+	  <ul class="navbar-nav">
+	    <li class="nav-item">
+	      <a class="nav-link" href="/">Home</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#" onclick="loadReportList()">List of Reports</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="/createuser.html">Create User</a>
+	    </li>
+	    <li class="nav-item">
+	    	<div>
+	    		<a class="nav-link" href="#" onclick="loadLogin()">Login</a>
+            </div>            
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#" onclick="loadAbout()">About</a>
+	    </li>
+	  </ul>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="sessionMessage"></div>
+	<br>	
+   </div>
+   <iframe id="mainFrame" src="home.html" style="position: absolute;  width: 100%; height: 100%; border: none" ></iframe>
+   <script src="index.js"></script>
+ </body>
+</html>

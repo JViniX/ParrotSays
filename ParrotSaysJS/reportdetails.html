@@ -3,25 +3,26 @@
 301016383 - Julio Vinicius A. de Carvalho
 November 17, 2019
 -->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" >
 <head>
-<link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
 <meta charset="UTF-8">
 <title>Parrot Says</title>
 
-<script th:inline="javascript" th:src="@{http://maps.googleapis.com/maps/api/js?key=AIzaSyDnhNIc55-nwsKi5D4KgGF04rwxd4g48jE&amp;sensor=false}"> </script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDnhNIc55-nwsKi5D4KgGF04rwxd4g48jE&amp;sensor=false"> </script>
 <script> 
 	function initialize() {
-		var mapProp = { center:new google.maps.LatLng([[${report.Latitude}]],[[${report.Longitude}]]), zoom:19, mapTypeId:google.maps.MapTypeId.ROADMAP }; 
+		var mapProp = { 
+				center:new google.maps.LatLng(report.Latitude,report.Longitude), 
+				zoom:19, 
+				mapTypeId:google.maps.MapTypeId.ROADMAP 
+		}; 
 		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp); 
 	} 
-	google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+	google.maps.event.addDomListener(window, 'load', initialize); </script>
 </head>
 
-<body>
-	<div th:insert="header :: header">...</div>
-	
+<body>	
 	<div class="container d-flex">
 	  <div class="card shadow p-3">
 	  	<div class="card-header">
@@ -32,16 +33,16 @@ November 17, 2019
 	            <table>  
 	                <tr>  
 	                    <td><b><label for="ReportId">Report Id </label></b></td>  
-	                    <td th:text="${report.reportId}"></td>
+	                    <td id="reportId"></td>
 	                </tr> 
 	                <tr>  
 	                    <td><b><label for="Description">Description </label></b></td>  
-	                    <td th:text="${report.Description}"></td>
+	                    <td id="description"></td>
 	                </tr>  
 	                
 	                <tr>  
 	                    <td><b><label for="DateTimeReport">DateTimeReport </label></b></td>  
-	                    <td th:text="${#dates.format(report.DateTimeReport, 'MMM dd, yyyy - HH:mm')}"></td>  
+	                    <td id="dateTimeReport"></td>  
 	                </tr>
 	                <tr>
 	                	<td colspan="2">
@@ -61,7 +62,7 @@ November 17, 2019
 	                </tr>
 	                <tr>
 	                	<td colspan="2">
-	                		<img th:src="*{'data:image/png;base64,'+report.Picture}" style="width:500px;" alt="" />
+	                		<img id="image" src='data:image/png;base64,'+report.Picture style="width:500px;" alt="" />
 	                	</td>
 	                </tr>
 	               

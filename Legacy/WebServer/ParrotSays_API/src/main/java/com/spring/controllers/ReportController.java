@@ -22,19 +22,20 @@ import com.spring.security.jwt.ServletUtil;
 
 
 @RestController
-@CrossOrigin("http://parrotsays.tk")
+//@CrossOrigin("http://parrotsays.tk")
+@CrossOrigin(maxAge = 3600)
 @RequestMapping("/api/reports")
 public class ReportController {
 	
 	@Autowired
 	ReportRepository repo;
-	
-	// Get all reports
+
 	@Secured({ "ROLE_ADMIN" })
+	// Get all reports
 	@GetMapping("/getall")
 	public List<Report> getAllReports()
 	{
-		return repo.findAllReports();//findAll();
+		return repo.findAll();
 	}
 	
 	@Secured({ "ROLE_SECGUARD", "ROLE_ADMIN" })
@@ -76,7 +77,7 @@ public class ReportController {
     	Report reportTemp = repo.findById(reportId)
     			.orElseThrow(() -> new NotFoundException("ReportId "+ reportId+ " Not found."));
 		
-    	reportTemp.setAdminId(reportEdited.getAdminId());
+    	reportTemp.setAdmin(reportEdited.getAdmin());
     	reportTemp.setDateTimeSolution(reportEdited.getDateTimeSolution());
     	reportTemp.setSolution(reportEdited.getSolution());
     	reportTemp.setStatusCode(reportEdited.getStatusCode());

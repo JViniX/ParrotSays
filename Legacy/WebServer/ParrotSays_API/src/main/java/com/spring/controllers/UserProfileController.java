@@ -36,7 +36,8 @@ import com.spring.security.jwt.JwtUtil;
 
 
 @RestController
-@CrossOrigin("http://parrotsays.tk")
+//@CrossOrigin("http://localhost/")
+@CrossOrigin(maxAge = 3600)
 @RequestMapping("/api/users")
 public class UserProfileController {
 

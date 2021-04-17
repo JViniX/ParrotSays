@@ -19,7 +19,7 @@ public class Report {
     private String Solution;
     
     private Long DateTimeSolution;
-    private int StatusCode;
+    private String StatusCode;
     private String UserId;
     private String AdminId;
     
@@ -71,10 +71,10 @@ public class Report {
 	public void setDateTimeSolution(Long dateTimeSolution) {
 		DateTimeSolution = dateTimeSolution;
 	}
-	public int getStatusCode() {
+	public String getStatusCode() {
 		return StatusCode;
 	}
-	public void setStatusCode(int statusCode) {
+	public void setStatusCode(String statusCode) {
 		StatusCode = statusCode;
 	}
 	public String getUserId() {

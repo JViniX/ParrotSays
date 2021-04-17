@@ -58,9 +58,14 @@ public class HomeController {
 		try {
 			if(customer.getPassword().equals(customer.getToken()))
 			{
-			System.out.println("Actual token: "+request.getSession().getAttribute("token").toString());
-			if (customerService.CreateUser(customer, request.getSession().getAttribute("token").toString()))
-				request.getSession().setAttribute("message", "New User Created successfully.");
+				System.out.println("Actual token: "+request.getSession().getAttribute("token").toString());
+				if (customerService.CreateUser(customer, request.getSession().getAttribute("token").toString()))
+					request.getSession().setAttribute("message", "New User Created successfully.");
+				else
+				{
+					request.getSession().setAttribute("error", "Something went wrong. Please try again.");
+					return "createuser";
+				}
 			}
 			else
 			{

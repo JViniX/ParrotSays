@@ -3,11 +3,7 @@ package com.spring.models;
 import java.util.Arrays;
 
 //import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.lang.NonNull;
@@ -34,14 +30,20 @@ public class Report {
     private String solution;
     private Long dateTimeSolution;
     @NonNull
-    private int statusCode;
-    private String userId;
-    private String adminId;
+    private Status statusCode;
+
+	@ManyToOne
+	@JoinColumn(name="userId")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name="adminId")
+	private User admin;
     
     public Report() {}
     
 	public Report(int reportId, String description, double latitude, double longitude, Long dateTimeReport,
-			int statusCode) {
+				  Status statusCode) {
 		super();
 		this.reportId = reportId;
 		this.description = description;
@@ -99,32 +101,26 @@ public class Report {
 	public void setDateTimeSolution(Long dateTimeSolution) {
 		this.dateTimeSolution = dateTimeSolution;
 	}
-	public int getStatusCode() {
+	public Status getStatusCode() {
 		return statusCode;
 	}
-	public void setStatusCode(int statusCode) {
+	public void setStatusCode(Status statusCode) {
 		this.statusCode = statusCode;
 	}
-	public String getUserId() {
-		return userId;
+
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public String getAdminId() {
-		return adminId;
+
+	public User getAdmin() {
+		return admin;
 	}
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
+
+	public void setAdmin(User admin) {
+		this.admin = admin;
 	}
-	@Override
-	public String toString() {
-		return "Report [reportId=" + reportId + ", description=" + description + ", picture=" + Arrays.toString(picture)
-				+ ", latitude=" + latitude + ", longitude=" + longitude + ", dateTimeReport=" + dateTimeReport
-				+ ", solution=" + solution + ", dateTimeSolution=" + dateTimeSolution + ", statusCode=" + statusCode
-				+ ", userId=" + userId + ", adminId=" + adminId + "]";
-	}
-    
-	
-    
 }
