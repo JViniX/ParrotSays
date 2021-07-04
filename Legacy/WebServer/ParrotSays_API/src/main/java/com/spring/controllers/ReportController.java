@@ -9,6 +9,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import javassist.NotFoundException;
 
 import org.springframework.security.access.annotation.Secured;
@@ -20,7 +23,7 @@ import org.springframework.http.ResponseEntity;
 import com.spring.models.*;
 import com.spring.security.jwt.ServletUtil;
 
-
+@Api(value = "Reports Endpoint", description = "Provides Reports endpoints", tags = {"Reports Controller"})
 @RestController
 //@CrossOrigin("http://parrotsays.tk")
 @CrossOrigin(maxAge = 3600)
@@ -30,6 +33,7 @@ public class ReportController {
 	@Autowired
 	ReportRepository repo;
 
+	@ApiOperation("Get all reports")
 	@Secured({ "ROLE_ADMIN" })
 	// Get all reports
 	@GetMapping("/getall")

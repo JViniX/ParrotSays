@@ -40,25 +40,24 @@ public class SwaggerConfig {
 	    public Docket swaggerSpringfoxDocket() {
 	        log.debug("Starting Swagger");
 	        Contact contact = new Contact(
-	            "Matyas Albert-Nagy",
-	            "https://justrocket.de",
-	            "matyas@justrocket.de");
+	            "Julio Vinicius",
+	            "",
+	            "");
 
 	        List<VendorExtension> vext = new ArrayList<>();
 	        ApiInfo apiInfo = new ApiInfo(
 	            "Backend API",
 	            "This is the best stuff since sliced bread - API",
-	            "6.6.6",
-	            "https://justrocket.de",
+	            "1.0.0",
+	            "Terms of Services URL",
 	            contact,
 	            "MIT",
-	            "https://justrocket.de",
+	            "",
 	            vext);
 
 	        Docket docket = new Docket(DocumentationType.SWAGGER_2)
 	            .apiInfo(apiInfo)
 	            .pathMapping("/")
-	            .apiInfo(ApiInfo.DEFAULT)
 	            .forCodeGeneration(true)
 	            .genericModelSubstitutes(ResponseEntity.class)
 	            .ignoredParameterTypes(Pageable.class)
